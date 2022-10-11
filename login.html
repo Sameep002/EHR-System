@@ -20,14 +20,14 @@
                     <label for="email" class="block text-sm font-semibold text-gray-800">
                         Email
                     </label>
-                    <input type="email"
+                    <input type="email" id = 'email'
                         class="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
                 <div class="mb-2">
                     <label for="password" class="block text-sm font-semibold text-gray-800">
                         Password
                     </label>
-                    <input type="password"
+                    <input type="password" id = 'password'
                         class="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
                 <a href="#" class="text-xs text-blue-600 hover:underline">
@@ -35,7 +35,7 @@
                 </a>
                 <div class="mt-6">
                     <button
-                        class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-600">
+                        class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-600" onclick = getInfo()>
                         Login
                     </button>
                 </div>
@@ -82,6 +82,42 @@
         </div>
         
     </div>
+    <script>
+        var objPeople = [
+	{ // Object @ 0 index
+		username: "sam",
+		password: "codify"
+	},
+	{ // Object @ 1 index
+		username: "matt",
+		password: "academy"
+	},
+	{ // Object @ 2 index
+		username: "chris",
+		password: "forever"
+	},
+    { // Object @ 3 index
+        username : "sameep.patrakar@gmail.com",
+        password : "password@123"
+    }
+
+]
+
+function getInfo() {
+	var username = document.getElementById('email').value
+	var password = document.getElementById('password').value
+
+	for(var i = 0; i < objPeople.length; i++) {
+		// check is user input matches username and password of a current index of the objPeople array
+		if(username == objPeople[i].username && password == objPeople[i].password) {
+			alert(username + " is logged in!!!")
+			// stop the function if this is found to be true
+			return
+		}
+	}
+	alert("incorrect username or password")
+}
+    </script>
 </body>
 
 </html>
